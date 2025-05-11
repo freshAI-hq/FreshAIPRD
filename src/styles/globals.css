@@ -1,0 +1,293 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  overflow: hidden; /* Disable scrolling */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  @apply relative w-full min-h-screen flex items-center justify-center px-6 overflow-hidden bg-[#f8f9fc];
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 40px 40px;
+}
+
+.hero-text-container {
+  @apply flex flex-col items-start justify-center max-w-2xl space-y-4;
+  @apply text-left; /* Align text to the left */
+}
+
+.hero-heading {
+  @apply text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#6246ea] to-[#e45858] text-transparent bg-clip-text;
+}
+
+.hero-description {
+  @apply mt-6 text-lg md:text-xl text-gray-600;
+}
+
+.cta-button {
+  @apply inline-block mt-8 bg-[#6246ea] hover:bg-[#4e3ac9] text-white px-6 py-3 rounded-xl text-lg font-medium shadow-md;
+  @apply transform hover:scale-105 transition-transform;
+}
+
+/* Blob Styles */
+.blob {
+  @apply absolute rounded-full opacity-30 blur-3xl;
+  will-change: transform;
+}
+
+.blob1 {
+  @apply w-[400px] h-[400px] bg-gradient-to-br from-[#6246ea] to-[#e45858] top-[-150px] left-[-150px] z-0;
+}
+
+.blob2 {
+  @apply w-[300px] h-[300px] bg-gradient-to-tr from-[#3fc1c9] to-[#e45858] bottom-[-150px] right-[-100px] z-0;
+}
+
+/* Two-column Layout */
+@media (min-width: 768px) {
+  .hero-content {
+    @apply flex items-center justify-between w-full; /* Flexbox to create two columns */
+  }
+
+  .hero-text-container {
+    @apply w-1/2; /* Take up half of the screen */
+  }
+
+  .hero-description,
+  .cta-button {
+    @apply w-1/2; /* Align description and button to the right */
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .hero-content {
+    @apply flex-col items-center; /* Stack content vertically on mobile */
+  }
+
+  .hero-text-container {
+    @apply text-center; /* Center text on mobile */
+  }
+
+  .hero-heading {
+    @apply text-4xl; /* Adjust heading size for mobile */
+  }
+
+  .hero-description {
+    @apply text-base; /* Adjust description size for mobile */
+  }
+
+  .cta-button {
+    @apply px-5 py-2 text-base; /* Adjust button padding */
+  }
+
+  /* Optional: Scale blobs for mobile */
+  .blob1,
+  .blob2 {
+    @apply opacity-20;
+  }
+}
+
+/* Basic styling for the Lead Magnet section */
+.lead-magnet-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quiz-form {
+  display: grid;
+  gap: 20px;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question label {
+  font-size: 16px;
+}
+
+.email-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input label {
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states */
+button:focus,
+a:focus {
+  outline: 2px solid #6246ea;
+  outline-offset: 2px;
+}
+
+/* Fluid typography */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+/* Custom background and layout styling */
+.importance-traffic-section {
+  background-image:
+    linear-gradient(45deg, rgba(106, 13, 173, 0.8), rgba(243, 143, 143, 0.8)),
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 40px 40px;
+}
+
+/* Feature Card Styles */
+.feature-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+/* Swiper container background */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.02) 25%,
+      rgba(0, 0, 0, 0.02) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.02) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 40px 40px;
+}
