@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import {
@@ -49,6 +49,19 @@ const cardVariants = {
 };
 
 export default function Features() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <>
       <Head>
@@ -71,7 +84,7 @@ export default function Features() {
             linear-gradient(0deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%, transparent),
             linear-gradient(90deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%, transparent)
           `,
-          backgroundSize: "40px 40px",
+          backgroundSize: '40px 40px',
         }}
       >
         <div className="max-w-screen-xl mx-auto text-center mb-16">
@@ -88,10 +101,10 @@ export default function Features() {
             <motion.article
               key={i}
               custom={i}
-              variants={cardVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true, amount: 0.2 }}
+              variants={isMobile ? {} : cardVariants}
+              initial={isMobile ? false : 'initial'}
+              whileInView={isMobile ? false : 'animate'}
+              viewport={isMobile ? {} : { once: true, amount: 0.2 }}
               className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
               aria-label={feature.title}
             >
