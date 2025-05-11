@@ -25,7 +25,6 @@ export default function Hero() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Recalculate motion transforms whenever window size changes
   const blob1X = useTransform(mouseX, [0, windowWidth], [-20, 20]);
   const blob1Y = useTransform(mouseY, [0, windowHeight], [-20, 20]);
   const blob2X = useTransform(mouseX, [0, windowWidth], [20, -20]);
@@ -57,7 +56,7 @@ export default function Hero() {
       <main className="overflow-x-hidden">
         <section
           onMouseMove={!isMobile ? handleMouseMove : undefined}
-          className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between px-4 md:px-6 overflow-hidden"
+          className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between px-4 md:px-6 overflow-hidden pt-[72px] md:pt-0"
           style={{
             backgroundColor: "#f8f9fc",
             backgroundImage:
@@ -65,7 +64,6 @@ export default function Hero() {
             backgroundSize: "40px 40px",
           }}
         >
-          {/* Blob effects only for desktop */}
           {!isMobile && (
             <>
               <motion.div
@@ -80,7 +78,6 @@ export default function Hero() {
           )}
 
           <div className="relative z-10 flex w-full max-w-6xl mx-auto flex-col md:flex-row items-center md:items-start">
-            {/* Left Heading */}
             <div className="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
               {isMobile ? (
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
@@ -102,7 +99,6 @@ export default function Hero() {
               )}
             </div>
 
-            {/* Right Description */}
             <div className="w-full md:w-1/2 pl-0 md:pl-8 flex flex-col items-start">
               {isMobile ? (
                 <>
