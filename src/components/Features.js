@@ -97,34 +97,42 @@ export default function Features() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-screen-xl mx-auto">
-          {features.map((feature, i) => (
-            <motion.article
-              key={i}
-              custom={i}
-              variants={isMobile ? {} : cardVariants}
-              initial={isMobile ? false : 'initial'}
-              whileInView={isMobile ? false : 'animate'}
-              viewport={isMobile ? {} : { once: true, amount: 0.2 }}
-              className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
-              aria-label={feature.title}
-            >
-              <div
-                className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm"
-                role="img"
-                aria-hidden="true"
+          {features.map((feature, i) =>
+            isMobile ? (
+              <article
+                key={i}
+                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                aria-label={feature.title}
               >
-                {feature.icon}
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">
-                  {feature.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {feature.desc}
-                </p>
-              </div>
-            </motion.article>
-          ))}
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.desc}</p>
+                </div>
+              </article>
+            ) : (
+              <motion.article
+                key={i}
+                custom={i}
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                aria-label={feature.title}
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.desc}</p>
+                </div>
+              </motion.article>
+            )
+          )}
         </div>
       </section>
     </>
