@@ -4,26 +4,26 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { LucideMessageCircle, LucideBot, LucideCreditCard, LucidePieChart } from "lucide-react";
 
-const problems = [
+const weeklyChallenges = [
   {
     icon: <LucideMessageCircle className="text-purple-500 w-8 h-8" />,
-    title: "Difficulty Reaching the Right Audience",
-    description: "FreshAI helps you automate outreach and engage with your ideal customers across multiple channels, ensuring you reach the right audience at the right time."
+    title: "Week 1: Define Goals & Initial Outreach",
+    description: "Set your business goals and start automating outreach to engage your ideal customers effectively.",
   },
   {
     icon: <LucideBot className="text-green-500 w-8 h-8" />,
-    title: "Low Engagement and Traffic on Social Media",
-    description: "With FreshAI, your social media is automatically managed with AI-powered content and engagement strategies, driving more traffic to your business."
+    title: "Week 2: Analyze Feedback & Refine Tactics",
+    description: "Review engagement data and feedback. Let your AI coach help adjust your strategies to boost results.",
   },
   {
     icon: <LucideCreditCard className="text-yellow-500 w-8 h-8" />,
-    title: "Manual Outreach is Time-Consuming",
-    description: "Automate your outreach efforts with FreshAI, reducing the time spent on manual lead generation and increasing the number of prospects you can engage."
+    title: "Week 3: Enhance Content & Marketing",
+    description: "Optimize your marketing content with AI-powered insights to drive higher engagement and traffic.",
   },
   {
     icon: <LucidePieChart className="text-red-500 w-8 h-8" />,
-    title: "No Conversion Tracking",
-    description: "FreshAI provides detailed analytics on your lead generation campaigns, helping you track conversions and optimize for better results."
+    title: "Week 4: Track Results & Plan Next Steps",
+    description: "Deep dive into conversion analytics, measure progress, and receive a tailored plan for sustained growth.",
   },
 ];
 
@@ -33,45 +33,44 @@ const ProblemSolving = () => {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();  // Initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRevealedIndex((prevIndex) => (prevIndex + 1) % problems.length); // Loop through the problems array
-    }, 3000); // Change this interval to control the speed of reveal
+      setRevealedIndex((prevIndex) => (prevIndex + 1) % weeklyChallenges.length);
+    }, 4000); // slower interval for better reading
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section
-      id="problem-solving"
+      id="weekly-problem-solving"
       className="py-24 relative bg-gradient-to-r from-blue-50 via-white to-blue-100"
-      aria-labelledby="problem-solving-heading"
+      aria-labelledby="weekly-problem-solving-heading"
       role="region"
-      aria-label="How FreshAI Solves Lead Generation Problems"
+      aria-label="How AI Coach Solves Weekly Business Challenges"
     >
-      {/* Intro Section */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 px-6">
         <div className="md:w-1/2 text-left flex flex-col justify-center items-start">
           <h2
-            id="problem-solving-heading"
+            id="weekly-problem-solving-heading"
             className="text-4xl font-semibold text-gray-900 mb-4"
             role="heading"
             aria-level="2"
           >
-            How FreshAI Solves Your Lead Generation Challenges
+            How Your AI Coach Solves Weekly Business Challenges
           </h2>
           <p className="text-lg text-gray-600">
-            FreshAI helps businesses tackle their toughest lead generation problems and boost conversion rates. Here’s how we can help you.
+            Each week, receive tailored solutions and strategies from your AI coach, designed to refine your approach and accelerate growth.
           </p>
         </div>
 
         <div className="md:w-1/2 relative flex flex-col justify-center items-center space-y-12 h-[600px]">
-          {problems.map((problem, index) => (
+          {weeklyChallenges.map((challenge, index) => (
             <motion.div
               key={index}
               className="absolute flex flex-col gap-12 items-center"
@@ -83,6 +82,7 @@ const ProblemSolving = () => {
                 right: index % 2 !== 0 ? "10%" : "auto",
                 top: index < 2 ? "20%" : "50%",
               }}
+              aria-hidden={revealedIndex !== index}
             >
               {revealedIndex === index && (
                 <motion.div
@@ -92,28 +92,27 @@ const ProblemSolving = () => {
                   transition={{ duration: 0.6 }}
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 0 15px rgba(255, 99, 132, 0.7)", // Glowing effect
+                    boxShadow: "0 0 15px rgba(59, 130, 246, 0.7)", // blue glowing effect
                   }}
-                  aria-labelledby={`problem-title-${index}`}
+                  aria-labelledby={`challenge-title-${index}`}
                   role="article"
                 >
-                  {/* Add alt text for accessibility */}
                   <div
-                    className="text-purple-500 w-8 h-8"
+                    className="w-8 h-8"
                     aria-hidden="true"
-                    title={problem.title}
+                    title={challenge.title}
                   >
-                    {problem.icon}
+                    {challenge.icon}
                   </div>
                   <h3
-                    id={`problem-title-${index}`}
+                    id={`challenge-title-${index}`}
                     className="text-xl font-semibold text-gray-900 mt-4"
                     role="heading"
                     aria-level="3"
                   >
-                    {problem.title}
+                    {challenge.title}
                   </h3>
-                  <p className="text-gray-700 text-sm mt-2">{problem.description}</p>
+                  <p className="text-gray-700 text-sm mt-2">{challenge.description}</p>
                 </motion.div>
               )}
             </motion.div>

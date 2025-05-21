@@ -5,64 +5,54 @@ import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'How does the 90-Day Challenge work?',
+    question: 'What is the AI Coach?',
     answer:
-      'The 90-Day Challenge is designed to help you grow your traffic consistently over three phases. In the first 30 days, we focus on setting up your goals, defining your audience, and launching your content. By day 60, we scale your growth and optimize your strategy based on data. By day 90, FreshAI automates your processes, allowing you to convert traffic into real leads and sales.',
+      'The AI Coach is an intelligent virtual assistant designed to help you improve productivity, enhance learning, and provide personalized guidance in real-time. It uses advanced AI algorithms to understand your goals and deliver tailored advice and support.',
   },
   {
-    question: 'How was the 90-Day Challenge created?',
+    question: 'How does the AI Coach work?',
     answer:
-      'The 90-Day Challenge was developed based on years of digital marketing expertise and data-driven insights. It incorporates proven strategies for building traffic, engaging with your audience, and converting that traffic into business results. The challenge is designed to be easy to follow, while maximizing results through automation and optimization using FreshAI’s technology.',
+      'The AI Coach interacts with you through conversational AI to analyze your progress, identify challenges, and recommend actionable strategies. It learns from your inputs and adapts its guidance to fit your unique style and needs.',
   },
   {
-    question: 'What is FreshAI?',
+    question: 'Can the AI Coach integrate with my existing tools?',
     answer:
-      'FreshAI is an AI-powered platform designed to streamline customer support, automate marketing tasks, and assist with CRM integration. It uses cutting-edge AI to handle social media conversations, automate appointments, and improve lead generation.',
+      'Yes! The AI Coach seamlessly integrates with popular productivity, communication, and learning platforms like Google Calendar, Slack, Microsoft Teams, and Notion to provide contextual assistance where you work.',
   },
   {
-    question: 'How does FreshAI integrate with social media platforms?',
+    question: 'Do I need any technical skills to use the AI Coach?',
     answer:
-      'FreshAI easily integrates with popular social media platforms like Instagram, WhatsApp, LinkedIn, and Facebook. You simply connect your accounts through the dashboard, and the platform will handle customer interactions seamlessly.',
+      'Not at all. The AI Coach is designed to be user-friendly with a no-code interface. You just connect your accounts and start interacting with the coach through chat or voice commands.',
   },
   {
-    question: 'Can FreshAI learn from my business content?',
+    question: 'How does the AI Coach personalize its recommendations?',
     answer:
-      'Yes! FreshAI can be trained using your website, PDFs, and other business materials. It learns your brand’s voice and responds in a way that feels personalized and authentic to your customers.',
+      'The AI Coach leverages machine learning to understand your habits, preferences, and progress. It continuously refines its advice based on your feedback and performance metrics to offer highly personalized coaching.',
   },
   {
-    question: 'Do I need technical skills to set up FreshAI?',
+    question: 'Can the AI Coach help with goal setting and tracking?',
     answer:
-      'Not at all! FreshAI is built for ease of use, offering a no-code setup. Simply connect your channels, upload content, and you’re ready to start automating your customer support and marketing.',
+      'Absolutely! The AI Coach helps you set SMART goals, breaks them into manageable tasks, and tracks your progress with reminders and motivational insights to keep you on track.',
   },
   {
-    question: 'Can FreshAI assist with scheduling appointments?',
+    question: 'Is my data secure with the AI Coach?',
     answer:
-      'Yes, FreshAI can handle appointment scheduling and even table reservations. It makes booking seamless for your customers, saving time for both sides.',
+      'Yes, your privacy and data security are top priorities. The AI Coach uses industry-standard encryption and complies with data protection regulations to ensure your information is safe.',
   },
   {
-    question: 'How does FreshAI help with lead generation?',
+    question: 'Can the AI Coach assist teams or just individuals?',
     answer:
-      'FreshAI uses AI-powered outreach methods to find and qualify leads. It scans business directories, social media platforms, and more to create targeted lead lists and send personalized outreach messages.',
+      'The AI Coach is built for both individuals and teams. It can facilitate team collaboration, monitor collective goals, and provide insights to boost overall team productivity.',
   },
   {
-    question: 'Which platforms does FreshAI support for marketing automation?',
+    question: 'Does the AI Coach support multiple languages?',
     answer:
-      'FreshAI supports a wide range of platforms for marketing automation, including Facebook, Instagram, LinkedIn, Reddit, Gmail, WhatsApp, and more. It centralizes all of your campaigns into one easy-to-use dashboard.',
+      'Currently, the AI Coach supports English and is expanding to include several other major languages to serve a global audience.',
   },
   {
-    question: 'How does FreshAI optimize my advertising campaigns?',
+    question: 'How do I get started with the AI Coach?',
     answer:
-      'FreshAI analyzes the performance of your ads and provides actionable insights for optimization. It offers suggestions for budget allocation, audience targeting, and copy adjustments to help you maximize ROI.',
-  },
-  {
-    question: 'Can FreshAI automate email campaigns?',
-    answer:
-      'Yes! FreshAI can create and automate email campaigns, from initial outreach to follow-ups. You can set up campaigns based on user behavior, and FreshAI will handle the sending and tracking for you.',
-  },
-  {
-    question: 'What kind of customer support does FreshAI provide?',
-    answer:
-      'FreshAI provides 24/7 support via AI-powered chatbots that are trained to handle common questions. You can also integrate with live support teams for more complex issues. FreshAI ensures your customers always get the help they need.',
+      'Getting started is easy! Sign up on our platform, connect your preferred tools, and begin chatting with your AI Coach. Personalized onboarding will guide you through the setup process.',
   },
 ]
 
@@ -97,7 +87,7 @@ export default function FaqSection() {
           Frequently Asked Questions
         </h2>
         <p className="text-gray-600 text-lg md:text-xl">
-          Everything you need to know about FreshAI.
+          Everything you need to know about the AI Coach.
         </p>
       </motion.div>
 
@@ -145,25 +135,16 @@ export default function FaqSection() {
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How does the 90-Day Challenge work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The 90-Day Challenge is designed to help you grow your traffic consistently over three phases. In the first 30 days, we focus on setting up your goals, defining your audience, and launching your content. By day 60, we scale your growth and optimize your strategy based on data. By day 90, FreshAI automates your processes, allowing you to convert traffic into real leads and sales."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How was the 90-Day Challenge created?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The 90-Day Challenge was developed based on years of digital marketing expertise and data-driven insights. It incorporates proven strategies for building traffic, engaging with your audience, and converting that traffic into business results. The challenge is designed to be easy to follow, while maximizing results through automation and optimization using FreshAI’s technology."
-                }
-              },
-              // Add the rest of your FAQs here in the same format
-            ]
+            "mainEntity": ${JSON.stringify(
+              faqs.map(({ question, answer }) => ({
+                '@type': 'Question',
+                name: question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: answer,
+                },
+              }))
+            )}
           }
         `}
       </script>

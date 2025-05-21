@@ -13,29 +13,29 @@ import {
 
 const features = [
   {
-    icon: <Bot size={22} aria-label="AI Social Media Assistant" />,
-    title: 'AI Social Media Assistant',
-    desc: 'Automate your social media posts and engagement. Respond to messages and comments, and schedule content to stay active online without lifting a finger.',
+    icon: <Bot size={22} aria-label="AI Business Coach" />,
+    title: 'Your AI Business Coach',
+    desc: 'Get smart, personalized advice anytime. Make confident decisions with guidance that acts like a trusted co-founder by your side.',
   },
   {
-    icon: <Users size={22} aria-label="Automated Lead Generation" />,
-    title: 'Automated Lead Generation',
-    desc: 'Find and engage with the right leads. Automatically reach out to potential customers on platforms like LinkedIn, Gmail, and WhatsApp with personalized messages and follow-ups.',
+    icon: <Users size={22} aria-label="Lead Growth Support" />,
+    title: 'Lead Growth Support',
+    desc: 'Discover new ways to attract customers effortlessly with AI-driven strategies tailored just for your business.',
   },
   {
-    icon: <Image size={22} aria-label="Content Creation Tools" />,
-    title: 'Content Creation Tools',
-    desc: 'Create high-quality, engaging content in minutes. Generate posts and visuals that resonate with your audience, ensuring your social media presence stands out.',
+    icon: <Image size={22} aria-label="Content & Marketing Help" />,
+    title: 'Content & Marketing Help',
+    desc: 'Create easy, effective marketing posts and content ideas that engage your audience and grow your brand presence.',
   },
   {
-    icon: <Contact size={22} aria-label="CRM and Lead Tracking" />,
-    title: 'Lightweight CRM & Lead Tracking',
-    desc: 'Keep track of your leads and interactions in one place. Automatically follow up and organize leads to convert them into customers.',
+    icon: <Contact size={22} aria-label="Track Your Progress" />,
+    title: 'Track Your Progress',
+    desc: 'Stay on top of your business health with regular report cards highlighting what’s working and what to improve.',
   },
   {
-    icon: <BarChart3 size={22} aria-label="Analytics and Insights" />,
-    title: 'Simple Analytics & Insights',
-    desc: 'Track your growth with ease. View key performance metrics and get AI-powered recommendations to optimize your strategies for better results.',
+    icon: <BarChart3 size={22} aria-label="Growth Plans & Insights" />,
+    title: 'Clear Growth Plans',
+    desc: 'Receive simple 30-day action plans designed to help you move your business forward step by step.',
   },
 ];
 
@@ -65,14 +65,14 @@ export default function Features() {
   return (
     <>
       <Head>
-        <title>AI-Powered Features for Business Growth - FreshAI</title>
+        <title>AI Business Coach Features - Grow Your Small Business</title>
         <meta
           name="description"
-          content="Discover FreshAI's suite of AI features: lead generation, content automation, analytics, and CRM tools to scale your startup faster."
+          content="Discover how our AI coach helps small businesses grow with personalized advice, lead support, progress tracking, and clear growth plans."
         />
         <meta
           name="keywords"
-          content="AI marketing tools, AI social assistant, lead gen automation, CRM, content automation"
+          content="AI business coach, small business growth, lead generation, marketing help, progress tracking"
         />
       </Head>
 
@@ -89,10 +89,10 @@ export default function Features() {
       >
         <div className="max-w-screen-xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-snug">
-            Everything You Need to Grow with AI
+            The AI Coach That Helps You Grow Your Business
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Simplify your business growth with our tools—automate outreach, create content, and track performance effortlessly.
+            Get advice, track progress, and grow smarter — all with an AI coach working alongside you.
           </p>
         </div>
 

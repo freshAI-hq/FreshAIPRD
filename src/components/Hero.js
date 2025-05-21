@@ -38,16 +38,16 @@ export default function Hero() {
   return (
     <>
       <Head>
-        <title>AI Growth Engine - FreshAI</title>
+        <title>AI Growth Engine - Your Smart Business Partner</title>
         <meta
           name="description"
-          content="FreshAI helps you attract leads, post across social platforms, recommend boosting strategies, and automate outreach—no followers needed."
+          content="Your AI Co-Founder helps you make smart decisions, giving weekly report cards and a clear 30-day plan to grow your business."
         />
         <meta
           name="keywords"
-          content="AI growth engine, AI automation, social media marketing, AI-powered business growth"
+          content="AI co-founder, business coach, smart decisions, weekly report card, 30-day plan"
         />
-        <meta name="author" content="FreshAI" />
+        <meta name="author" content="Your Company" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
@@ -103,16 +103,16 @@ export default function Hero() {
               {isMobile ? (
                 <>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                    That Drives Traffic to Your Business—Even If You're Just Getting Started
+                    Helping You Make Smart Business Decisions and Grow Faster
                   </h2>
                   <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-900 max-w-3xl">
-                    FreshAI helps you attract leads, post across social platforms, suggest content boosting strategies, and automate outreach—no followers needed. Focus on your product, and let our AI handle the growth.
+                    Get weekly report cards, personalized advice, and a clear 30-day plan — just like having a trusted co-founder by your side.
                   </p>
                   <a
                     href="#waitlist"
                     className="inline-block mt-6 sm:mt-8 bg-[#6246ea] hover:bg-[#4e3ac9] text-white px-6 py-3 rounded-xl text-base sm:text-lg font-medium shadow-md"
                   >
-                    Join the Waitlist
+                    Get Started
                   </a>
                 </>
               ) : (
@@ -123,7 +123,7 @@ export default function Hero() {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight"
                   >
-                    That Drives Traffic to Your Business—Even If You're Just Getting Started
+                    Helping You Make Smart Business Decisions and Grow Faster
                   </motion.h2>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export default function Hero() {
                     transition={{ delay: 0.4, duration: 0.6 }}
                     className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-900 max-w-3xl"
                   >
-                    FreshAI helps you attract leads, post across social platforms, suggest content boosting strategies, and automate outreach—no followers needed. Focus on your product, and let our AI handle the growth.
+                    Get weekly report cards, personalized advice, and a clear 30-day plan — just like having a trusted co-founder by your side.
                   </motion.p>
                   <motion.a
                     href="#waitlist"
@@ -142,7 +142,7 @@ export default function Hero() {
                     whileTap={{ scale: 0.95 }}
                     className="inline-block mt-6 sm:mt-8 bg-[#6246ea] hover:bg-[#4e3ac9] text-white px-6 py-3 rounded-xl text-base sm:text-lg font-medium shadow-md"
                   >
-                    Join the Waitlist
+                    Get Started
                   </motion.a>
                 </>
               )}

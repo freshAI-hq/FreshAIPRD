@@ -1,7 +1,6 @@
 "use client";
 import { useState } from 'react';
 import { supabase } from 'lib/supabaseClient';
-//import { supabase } from '@/lib/supabaseClient'; // Use your existing initialization
 
 export default function JoinWaitlist() {
   const [email, setEmail] = useState('');
@@ -55,7 +54,6 @@ export default function JoinWaitlist() {
     setErrorMessage('');
 
     try {
-      // Save to Supabase
       const { error: supabaseError } = await supabase
         .from('waitlist')
         .insert([{
@@ -68,7 +66,6 @@ export default function JoinWaitlist() {
 
       if (supabaseError) throw supabaseError;
 
-      // Trigger email
       const emailResponse = await fetch('/api/joinwaitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -103,16 +100,16 @@ export default function JoinWaitlist() {
       
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-extrabold mb-6 text-gray-900 leading-tight">
-          Ready to 10x Your Traffic? 🚀
+          Ready to 10x Your Strategy with an AI Coach? 🤖
           <br /> 
-          Join the Waitlist Now and Unlock Exclusive Early Access to Game-Changing Tools!
+          Join the Waitlist Now for Exclusive Early Access!
         </h2>
 
         {status === 'start' && (
           <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg mt-8 max-w-xl mx-auto">
             <form onSubmit={handleEmailSubmit}>
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                Get First Access to Tools That Will Skyrocket Your Growth!
+                Get First Access to the AI Coach That’ll Transform How You Grow Online!
               </h3>
               <input
                 type="email"
@@ -144,7 +141,7 @@ export default function JoinWaitlist() {
             <form onSubmit={handleQuestionsSubmit}>
               <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">
-                  What problem are you hoping to solve with our tools?
+                  What goal are you hoping to achieve with an AI Coach?
                 </label>
                 <textarea
                   value={question1}
@@ -155,7 +152,7 @@ export default function JoinWaitlist() {
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">
-                  What specific feature excites you most?
+                  What kind of support or guidance do you need most?
                 </label>
                 <textarea
                   value={question2}
@@ -166,7 +163,7 @@ export default function JoinWaitlist() {
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">
-                  How will this help your business?
+                  How would AI coaching help you or your business succeed?
                 </label>
                 <textarea
                   value={question3}
@@ -191,10 +188,10 @@ export default function JoinWaitlist() {
 
         {status === 'submitted' && (
           <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg mt-8 max-w-xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900">🎉 Thank You for Joining!</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-gray-900">🎉 You're In!</h3>
             <p className="text-gray-700 mb-4">
-              You're officially on the waitlist! We've sent a confirmation to <strong>{email}</strong>. 
-              We'll notify you when we launch.
+              Thanks for signing up! Your AI coaching journey is just getting started. 
+              We'll keep you updated at <strong>{email}</strong>.
             </p>
           </div>
         )}
@@ -203,7 +200,8 @@ export default function JoinWaitlist() {
           <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg mt-8 max-w-xl mx-auto">
             <h3 className="text-2xl font-semibold mb-4 text-gray-900">You're Already Registered!</h3>
             <p className="text-gray-700 mb-4">
-              The email <strong>{email}</strong> is already on our waitlist. We'll notify you when we launch.
+              The email <strong>{email}</strong> is already on our AI Coach waitlist.
+              Stay tuned — big things are coming!
             </p>
             <button
               onClick={() => setStatus('start')}
