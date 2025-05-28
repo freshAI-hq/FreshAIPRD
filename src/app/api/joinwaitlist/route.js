@@ -36,15 +36,15 @@ export async function POST(request) {
                 Hey there,
               </p>
               <p style="font-size: 16px; line-height: 1.6;">
-                Thanks for signing up to the <strong>FreshAI waitlist</strong> — you’re officially in line to get early access to tools that will supercharge your traffic, automate your SEO, and grow your business.
+                Thanks for joining the <strong>FreshAI waitlist</strong>! You're one step closer to unlocking powerful AI tools designed specifically for solopreneurs — to help you understand your code, secure your projects, automate testing, and seamlessly integrate your workflow.
               </p>
               <p style="font-size: 16px; line-height: 1.6;">
-                We'll be rolling out access soon and you'll be among the first to know. In the meantime, keep an eye on your inbox for updates, early invites, and sneak peeks.
+                We'll be rolling out early access soon. Meanwhile, keep an eye on your inbox for updates, sneak peeks, and exclusive invites.
               </p>
 
               <div style="margin: 30px 0; text-align: center;">
                 <a href="https://freshai.io" style="background: #6246ea; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                  Explore Our Vision
+                  Learn More About FreshAI
                 </a>
               </div>
 
@@ -57,7 +57,7 @@ export async function POST(request) {
             <!-- Footer -->
             <div style="background: #f1f1f1; padding: 15px 20px; text-align: center; font-size: 13px; color: #777;">
               You received this email because you joined the FreshAI waitlist. 
-              <br />No longer interested? No problem — you can unsubscribe any time.
+              <br />No longer interested? No worries — you can unsubscribe any time.
             </div>
           </div>
         </div>
