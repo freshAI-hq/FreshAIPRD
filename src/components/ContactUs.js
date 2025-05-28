@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { supabase } from 'lib/supabaseClient';
-import Head from "next/head"; // Import next/head
+import { supabase } from "lib/supabaseClient";
+import Head from "next/head";
 
 function ContactUs() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -21,16 +21,15 @@ function ContactUs() {
     e.preventDefault();
     setError(null);
 
-    // Validate the form fields
     if (!formData.email.includes("@") || !formData.name || !formData.message) {
       setError("Please fill out all fields with valid information.");
       return;
     }
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("contact_messages")
-        .insert([{ ...formData, submitted_at: new Date() }]);
+        .insert([{ ...formData, submitted_at: new Date().toISOString() }]);
 
       if (error) throw error;
 
@@ -44,68 +43,60 @@ function ContactUs() {
 
   return (
     <>
-      {/* Use Next.js Head component to add SEO Meta Tags */}
       <Head>
-        <meta name="description" content="Get in touch with us for any queries or support. Fill out the contact form to reach our team quickly." />
+        <meta
+          name="description"
+          content="Get in touch with us for any queries or support. Fill out the contact form to reach our team quickly."
+        />
         <meta name="keywords" content="contact, customer support, get in touch, message us" />
         <meta name="author" content="[Your Company Name]" />
         <title>Contact Us - [Your Company Name]</title>
       </Head>
 
-      {/* Contact Us Section */}
       <section
-        className="relative py-16 bg-[#f8f9fc] px-6 sm:px-8 lg:px-16"
         id="contact"
+        className="relative w-full py-16 px-6 sm:px-8 lg:px-12 bg-white"
+        aria-label="Contact Us Section"
       >
-        {/* Floating Blobs for a dynamic background */}
-        <motion.div
-          initial={{ x: -120, y: -80 }}
-          animate={{ x: 0, y: 0 }}
-          transition={{ duration: 15, repeat: Infinity, repeatType: "mirror" }}
-          className="absolute w-[350px] h-[350px] bg-gradient-to-br from-[#6246ea] to-[#3fc1c9] rounded-full opacity-30 blur-3xl top-[-100px] left-[-120px] z-0"
-        />
-        <motion.div
-          initial={{ x: 80, y: 120 }}
-          animate={{ x: 0, y: 0 }}
-          transition={{ duration: 18, repeat: Infinity, repeatType: "mirror" }}
-          className="absolute w-[250px] h-[250px] bg-gradient-to-tr from-[#e45858] to-[#6246ea] rounded-full opacity-30 blur-3xl bottom-[-100px] right-[-80px] z-0"
-        />
-
-        {/* Contact Form Section */}
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+        <div className="relative max-w-3xl mx-auto text-center z-10">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
             Get in Touch
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
             Have questions or feedback? We'd love to hear from you.
           </p>
 
-          {/* Form Container */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+          <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow hover:shadow-lg transition-shadow duration-300 max-w-xl mx-auto text-left">
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl text-green-600"
+                className="text-green-600 text-xl font-semibold"
+                role="alert"
               >
-                Thank you for reaching out! We'll get back to you soon.
+                🎉 Thank you for reaching out! We'll get back to you soon.
               </motion.div>
             ) : (
               <>
-                {/* Display error message if form validation fails */}
-                {error && <div className="text-red-600 mb-4">{error}</div>}
-
-                {/* Contact Form */}
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+                {error && (
+                  <p
+                    className="text-red-500 mb-6 font-medium"
+                    role="alert"
+                  >
+                    {error}
+                  </p>
+                )}
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <input
                     type="text"
                     name="name"
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="px-6 py-3 text-lg rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6246ea]"
+                    className="px-6 py-3 rounded-3xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
                     required
+                    aria-label="Your name"
                   />
                   <input
                     type="email"
@@ -113,8 +104,9 @@ function ContactUs() {
                     placeholder="Your email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="px-6 py-3 text-lg rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6246ea]"
+                    className="px-6 py-3 rounded-3xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
                     required
+                    aria-label="Your email"
                   />
                   <textarea
                     name="message"
@@ -122,12 +114,14 @@ function ContactUs() {
                     placeholder="Your message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="px-6 py-3 text-lg rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6246ea]"
+                    className="px-6 py-3 rounded-3xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
                     required
-                  ></textarea>
+                    aria-label="Your message"
+                  />
                   <button
                     type="submit"
-                    className="bg-[#6246ea] hover:bg-[#4e3ac9] text-white px-6 py-3 rounded-xl text-lg font-medium shadow-md transition"
+                    className="bg-[#6366f1] hover:bg-[#4f46e5] text-white px-6 py-3 rounded-3xl text-lg font-semibold transition-shadow duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                    disabled={submitted}
                   >
                     Send Message
                   </button>

@@ -17,21 +17,21 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm overflow-x-hidden">
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between overflow-hidden min-w-0">
+    <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" passHref>
           <motion.h1
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-lg sm:text-xl font-bold text-[#6246ea] whitespace-nowrap cursor-pointer"
+            className="text-xl font-semibold text-gray-900 cursor-pointer select-none"
           >
             FreshAI
           </motion.h1>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex justify-center gap-4 text-gray-700 font-medium">
+        <nav className="hidden md:flex space-x-10 text-gray-700 font-medium">
           {navItems.map((item) => (
             <ScrollLink
               key={item.name}
@@ -39,27 +39,20 @@ const Navbar = () => {
               smooth={true}
               duration={600}
               offset={-80}
-              className="cursor-pointer hover:text-[#6246ea] transition-colors duration-200 text-xs sm:text-sm"
+              className="cursor-pointer hover:text-gray-900 transition-colors duration-200 text-sm select-none"
+              activeClass="text-gray-900 border-b-2 border-gray-900 pb-1"
+              spy={true}
             >
               {item.name}
             </ScrollLink>
           ))}
         </nav>
 
-        {/* Desktop buttons */}
-        <div className="hidden md:flex gap-2 items-center">
-          <ScrollLink
-            to="leadmagnet"
-            smooth={true}
-            duration={600}
-            offset={-80}
-            className="cursor-pointer px-3 py-2 sm:px-4 sm:py-2.5 bg-[#6246ea] text-white rounded-xl text-xs sm:text-sm font-semibold hover:bg-[#4e3ac9] transition"
-          >
-            Take the Survey
-          </ScrollLink>
+        {/* Join Waitlist Button (Apple-style minimal) */}
+        <div className="hidden md:flex">
           <a
             href="#waitlist"
-            className="px-3 py-2 sm:px-4 sm:py-2.5 border border-[#6246ea] text-[#6246ea] rounded-xl text-xs sm:text-sm font-semibold hover:bg-[#f3f0ff] transition"
+            className="text-sm font-medium text-gray-900 border border-gray-900 rounded-md px-4 py-2 hover:bg-gray-900 hover:text-white transition select-none"
           >
             Join Waitlist
           </a>
@@ -67,7 +60,9 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden focus:outline-none"
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          className="md:hidden text-gray-900 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -81,9 +76,9 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-white border-t border-gray-200 px-4 sm:px-6 py-3 w-full overflow-x-hidden"
+            className="md:hidden bg-white border-t border-gray-200 px-6 py-4 w-full"
           >
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <ScrollLink
                   key={item.name}
@@ -92,25 +87,17 @@ const Navbar = () => {
                   duration={600}
                   offset={-80}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="cursor-pointer text-gray-700 font-medium hover:text-[#6246ea] transition text-xs sm:text-sm max-w-full text-center"
+                  className="cursor-pointer text-gray-900 font-medium hover:text-gray-700 transition text-base text-center select-none"
+                  activeClass="font-semibold"
+                  spy={true}
                 >
                   {item.name}
                 </ScrollLink>
               ))}
 
-              <ScrollLink
-                to="leadmagnet"
-                smooth={true}
-                duration={600}
-                offset={-80}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 bg-[#6246ea] text-white rounded-xl text-xs sm:text-sm font-semibold text-center"
-              >
-                Take the Survey
-              </ScrollLink>
               <a
                 href="#waitlist"
-                className="px-3 py-2 border border-[#6246ea] text-[#6246ea] rounded-xl text-xs sm:text-sm font-semibold text-center"
+                className="text-gray-900 border border-gray-900 rounded-md px-6 py-2 text-center font-medium hover:bg-gray-900 hover:text-white transition select-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Join Waitlist

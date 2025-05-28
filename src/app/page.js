@@ -5,7 +5,7 @@ import Features from '@components/Features';
 import Footer from '@components/Footer';
 import HowItWorks from '@components/HowItWorks';
 import ProblemSolving from '@components/ProblemSolving'
-import LeadMagnet from '@components/LeadMagnet';
+//import LeadMagnet from '@components/LeadMagnet';
 import JoinWaitlist from '@components/JoinWaitlist';
 import FaqSection from '@components/FaqSection';
 import ContactUs  from '@components/ContactUs'
@@ -17,7 +17,7 @@ const HomePage = () => {
       <Features />
       <HowItWorks />
       <ProblemSolving />
-      <LeadMagnet />
+     
      
       
       <FaqSection />

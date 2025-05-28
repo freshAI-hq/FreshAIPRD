@@ -1,130 +1,105 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Bot,
-  Users,
-  Contact,
-  BarChart3,
-} from 'lucide-react';
+import { CheckSquare, Activity, Zap, AlertTriangle } from 'lucide-react';
 
-const weeks = [
+const testingSteps = [
   {
-    icon: <Bot size={22} aria-label="Week 1: Initial Setup & Strategy" />,
-    title: 'Week 1: Initial Setup & Strategy',
-    desc: `Meet your AI Business Coach and set initial goals. Begin with a personalized strategy to kickstart growth.`,
+    icon: <CheckSquare size={32} className="text-indigo-600" />,
+    title: 'Auto-Generated Test Cases',
+    desc: [
+      'Generate unit, integration, and end-to-end tests automatically based on your code.',
+      'Save time and ensure comprehensive coverage without manual effort.',
+    ],
   },
   {
-    icon: <Contact size={22} aria-label="Week 2: Review & Refine" />,
-    title: 'Week 2: Review & Refine',
-    desc: `Evaluate last week’s progress using AI-generated insights. Adjust strategy based on feedback to improve lead growth.`,
+    icon: <Activity size={32} className="text-indigo-600" />,
+    title: 'Flow Simulation & Validation',
+    desc: [
+      'Simulate user flows with visual feedback for every step.',
+      'Catch flow breaks, inconsistent states, and edge cases before deployment.',
+    ],
   },
   {
-    icon: <Users size={22} aria-label="Week 3: Optimize Marketing" />,
-    title: 'Week 3: Optimize Marketing',
-    desc: `Analyze content and marketing results. Your AI coach helps craft optimized campaigns to boost engagement.`,
+    icon: <Zap size={32} className="text-indigo-600" />,
+    title: 'Test Coverage Heatmaps',
+    desc: [
+      'Visualize tested vs untested code regions clearly.',
+      'Drill down to individual functions or lines to identify gaps.',
+    ],
   },
   {
-    icon: <BarChart3 size={22} aria-label="Week 4: Track & Plan Ahead" />,
-    title: 'Week 4: Track & Plan Ahead',
-    desc: `Review overall progress with detailed reports. Receive an actionable plan for continuous growth beyond 30 days.`,
+    icon: <AlertTriangle size={32} className="text-indigo-600" />,
+    title: 'Performance & Integrity Alerts',
+    desc: [
+      'Receive real-time alerts on broken flows and performance regressions.',
+      'Track response times, throughput, and resource usage to keep your app healthy.',
+    ],
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, type: 'spring', stiffness: 100 },
-  }),
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
 };
 
-export default function ThirtyDayIterativePlanWithButton() {
-  const [isMobile, setIsMobile] = useState(false);
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
+};
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const scrollToPlan = () => {
-    const element = document.getElementById('30-day-iterative-plan');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+export default function HowItWorksTesting() {
   return (
-    <>
-      <div className="text-center py-10 bg-gray-50">
-        <button
-          onClick={scrollToPlan}
-          className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+    <section
+      id="how-it-works"
+      className="bg-white py-24 px-6 sm:px-12 lg:px-24"
+      aria-labelledby="how-it-works-heading"
+    >
+      <div className="max-w-4xl mx-auto text-center mb-20">
+        <h2
+          id="how-it-works-heading"
+          className="text-4xl font-extrabold text-gray-900 mb-6"
         >
-          See the 30-Day AI Coach Plan
-        </button>
+          How Testing Works in Your Workspace
+        </h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          Streamline your entire testing lifecycle with AI-powered automation, deep insights, and visual tools — all in one developer-friendly workspace.
+        </p>
       </div>
 
-      <section
-        id="how-it-works"
-        className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#f8f9fc]"
-        aria-labelledby="how-it-works-heading"
+      <motion.div
+        className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto"
+        variants={container}
+        initial="hidden"
+        animate="visible"
       >
-        <div className="max-w-screen-xl mx-auto text-center mb-16">
-          <h2
-            id="how-it-works-heading"
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-snug"
+        {testingSteps.map(({ icon, title, desc }, index) => (
+          <motion.article
+            key={index}
+            variants={card}
+            className="bg-gray-50 rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow cursor-default flex flex-col items-start"
           >
-            30-Day Iterative Growth Plan with Your AI Coach
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Each week, review progress, get feedback, and receive a fresh, tailored strategy for continuous improvement.
-          </p>
-        </div>
+            <div className="mb-6">{icon}</div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              {desc.map((line, i) => (
+                <li key={i} className="leading-relaxed">
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
+      </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-screen-xl mx-auto">
-          {weeks.map((week, i) =>
-            isMobile ? (
-              <article
-                key={i}
-                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
-                aria-label={week.title}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
-                  {week.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{week.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{week.desc}</p>
-                </div>
-              </article>
-            ) : (
-              <motion.article
-                key={i}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
-                aria-label={week.title}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
-                  {week.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{week.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{week.desc}</p>
-                </div>
-              </motion.article>
-            )
-          )}
-        </div>
-      </section>
-    </>
+      <p className="mt-20 max-w-3xl mx-auto text-center text-gray-700 text-base leading-relaxed">
+        Manage, analyze, and optimize your tests effortlessly in one unified platform. Deliver quality software faster by catching bugs and performance issues early.
+      </p>
+    </section>
   );
 }

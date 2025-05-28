@@ -4,38 +4,38 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import {
-  Bot,
-  Users,
-  Image,
-  Contact,
-  BarChart3,
+  Cpu,
+  ShieldCheck,
+  Beaker,
+  Activity,
+  UploadCloud,
 } from 'lucide-react';
 
 const features = [
   {
-    icon: <Bot size={22} aria-label="AI Business Coach" />,
-    title: 'Your AI Business Coach',
-    desc: 'Get smart, personalized advice anytime. Make confident decisions with guidance that acts like a trusted co-founder by your side.',
+    icon: <Cpu size={22} aria-label="Code Understanding" />,
+    title: 'Code Understanding',
+    desc: 'Interactive logic visualizer, AI-powered code explanation, and auto-generated documentation tailored for developers, PMs, and QA.',
   },
   {
-    icon: <Users size={22} aria-label="Lead Growth Support" />,
-    title: 'Lead Growth Support',
-    desc: 'Discover new ways to attract customers effortlessly with AI-driven strategies tailored just for your business.',
+    icon: <ShieldCheck size={22} aria-label="Code Quality & Security" />,
+    title: 'Code Quality & Security',
+    desc: 'Static vulnerability scanning, AI fix suggestions, dead code detection, and safe removal to keep your codebase secure and clean.',
   },
   {
-    icon: <Image size={22} aria-label="Content & Marketing Help" />,
-    title: 'Content & Marketing Help',
-    desc: 'Create easy, effective marketing posts and content ideas that engage your audience and grow your brand presence.',
+    icon: <Beaker size={22} aria-label="Testing Support" />,
+    title: 'Testing Support',
+    desc: 'End-to-end flow simulation, AI-generated test cases, coverage heatmaps, and flow integrity alerts for robust test management.',
   },
   {
-    icon: <Contact size={22} aria-label="Track Your Progress" />,
-    title: 'Track Your Progress',
-    desc: 'Stay on top of your business health with regular report cards highlighting what’s working and what to improve.',
+    icon: <Activity size={22} aria-label="Dashboard & Monitoring" />,
+    title: 'Dashboard & Monitoring',
+    desc: 'Unified dashboard, issue tracker, fix suggestions feed, GitHub sync, and continuous background monitoring of code health and risks.',
   },
   {
-    icon: <BarChart3 size={22} aria-label="Growth Plans & Insights" />,
-    title: 'Clear Growth Plans',
-    desc: 'Receive simple 30-day action plans designed to help you move your business forward step by step.',
+    icon: <UploadCloud size={22} aria-label="Export & Integration" />,
+    title: 'Export & Integration',
+    desc: 'Export docs and flow maps, one-click PR fixes, GitHub/GitLab integration, and optional Jira/issue tracker sync.',
   },
 ];
 
@@ -65,51 +65,40 @@ export default function Features() {
   return (
     <>
       <Head>
-        <title>AI Business Coach Features - Grow Your Small Business</title>
+        <title>AI Code Platform Features — Empower Your Dev Workflow</title>
         <meta
           name="description"
-          content="Discover how our AI coach helps small businesses grow with personalized advice, lead support, progress tracking, and clear growth plans."
-        />
-        <meta
-          name="keywords"
-          content="AI business coach, small business growth, lead generation, marketing help, progress tracking"
+          content="Explore the AI-powered features that elevate your development workflow from code understanding to monitoring and integrations."
         />
       </Head>
 
       <section
         id="features"
-        className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#f8f9fc]"
-        style={{
-          backgroundImage: `
-            linear-gradient(0deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%, transparent),
-            linear-gradient(90deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%, transparent)
-          `,
-          backgroundSize: '40px 40px',
-        }}
+        className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-white"
       >
         <div className="max-w-screen-xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-snug">
-            The AI Coach That Helps You Grow Your Business
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+            AI-Powered Features to Transform Your Development
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Get advice, track progress, and grow smarter — all with an AI coach working alongside you.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            From deep code insights and security to seamless testing and integrations — all in one intelligent platform.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-xl mx-auto">
           {features.map((feature, i) =>
             isMobile ? (
               <article
                 key={i}
-                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                className="flex flex-col sm:flex-row items-start gap-5 bg-gray-50 p-6 rounded-3xl shadow hover:shadow-lg transition-shadow"
                 aria-label={feature.title}
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#6366f1]/10 text-[#6366f1] flex items-center justify-center shadow-sm">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-base text-gray-700 leading-relaxed">{feature.desc}</p>
                 </div>
               </article>
             ) : (
@@ -120,15 +109,15 @@ export default function Features() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.2 }}
-                className="flex flex-col sm:flex-row items-start gap-4 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                className="flex flex-col sm:flex-row items-start gap-5 bg-gray-50 p-6 rounded-3xl shadow hover:shadow-lg transition-shadow"
                 aria-label={feature.title}
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#6366f1]/10 text-[#6366f1] flex items-center justify-center shadow-sm">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-base text-gray-700 leading-relaxed">{feature.desc}</p>
                 </div>
               </motion.article>
             )
